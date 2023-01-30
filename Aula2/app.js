@@ -21,6 +21,7 @@ var matematica
 var biologia
 var quimica
 
+
 entradaDados.question("Digite suas nota de Português \n", function (nota1) {
     portugues = nota1
 
@@ -36,26 +37,28 @@ entradaDados.question("Digite suas nota de Português \n", function (nota1) {
 
 
                 function calcularMedia() {
-                    if ((isNaN(portugues)|| isNaN(matematica) || isNaN(quimica) || isNaN(biologia)) ) {
-                        return "Erro:  não é um número"
-                    } 
 
-                    else if ( (parseFloat(portugues) || parseFloat(matematica) || parseFloat(quimica) || parseFloat(biologia)) > 10) {
-                        return "Erro: número maior do que o permitido"
-                    }
-
-                     else if ( (parseFloat(portugues) || parseFloat(matematica) || parseFloat(quimica) || parseFloat(biologia)) == '') {
+                    if (portugues == '' || matematica =='' || quimica =='' || biologia == '') {
                         return "Erro: falta de caracteres"
                     }
+                    else if (isNaN(portugues) || isNaN(matematica) || isNaN(quimica) || isNaN(biologia)) {
+                        return "Erro:  não é um número"
+                    }
 
-                     else {
-                        var calcular = ((parseFloat(portugues) + parseFloat(matematica) + parseFloat(quimica) + parseFloat(biologia)) / 4)
-                        if (calcular >= 6) {
-                            return calcular + " Você está aprovado"
-                        } 
+                    else if (parseFloat(portugues) >10 || parseFloat(matematica) >10 || parseFloat(quimica) >10 || parseFloat(biologia) > 10) {
+                        return "Erro: número maior do que o permitido"
+                    }
+                    else if (parseFloat(portugues) <0 || parseFloat(matematica) <0 || parseFloat(quimica) <0 || parseFloat(biologia) < 0) {
+                        return "Erro: número menor do que o permitido"
+                    }
+                    else {
+                        var media = ((parseFloat(portugues) + parseFloat(matematica) + parseFloat(quimica) + parseFloat(biologia)) / 4)
+                        if (media >= 7) {
+                            return media + " Você está aprovado"
+                        }
 
                         else {
-                            return calcular + " Você está reprovado"
+                            return media + " Você está reprovado"
                         }
 
                     }
