@@ -15,10 +15,10 @@ var entradaDados = readline.createInterface({ // cria um objeto para manipulaç�
     output: process.stdout
 })
 
-entradaDados.question('Valor1: \n', function (numero1) {
+entradaDados.question('Digite o valor1: \n', function (numero1) {
     let valor1 = numero1.replace('.', ',')
 
-    entradaDados.question('Valor: \n', function (numero2) {
+    entradaDados.question('Digite o valor2: \n', function (numero2) {
         let valor2 = numero2.replace('.', ',')
 
         entradaDados.question('Escolha uma operação: (SOMAR | SUBTRAIR | MULTIPLICAR | DIVIDIR) \n', function (tipoDeCalculo) {
@@ -33,13 +33,14 @@ entradaDados.question('Valor1: \n', function (numero1) {
 
                 resultado = matematica.calculadora(valor1, valor2, operacao)
 
-                
-                if(resultado != false){
+
+                if (resultado === false) {
+                    entradaDados.close();
+
+                } else {
                     console.log(resultado)
-                }else{
-                    entradaDados.close
                 }
-               
+
 
             }
 
