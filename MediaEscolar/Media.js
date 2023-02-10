@@ -95,18 +95,22 @@ function mediaEscolar(nota1, nota2, nota3, nota4, notadoExame) {
 
             console.log('Você está digitando caracteres errado')
 
-            return status = false
+             status = false
         } else if (alunoDados == '' || cursoDados == '' || professorDados == '' || generoDadosAluno == '' || feminino == '' || masculino == '' || disciplinaDados == '' || generoDadosProfessor == '') {
 
 
             console.log('Você está digitando caracteres errado')
-            return status = false
+             status = false
 
-        } else if (generoAluno == feminino) {
+        }else if(generoDadosAluno == feminino ||  generoDadosProfessor == feminino)  {
             alunoDados == "Aluna"
-        } else if (generoDadosProfessor == feminino) {
-            professorDados == "Professora"
-        } else {
+            professorDados == "Aluna"
+        }
+        else{
+           console.log("O aluno " +"["+ alunoDados +"]"+ " foi" +  "["+ mediaEscolar() "+]" na disciplina [ xxxxxxxx )
+        }
+        }
+
             
 
 
