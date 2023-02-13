@@ -17,10 +17,10 @@ const calcularTabuada = function (multiplicando, maxMultiplicador) { // função
     let resultado
 
     if (isNaN(valorInicial) || isNaN(valorMaximo)) { // caso não seja número colocado na função
-        status = false
+       return status = false
 
     } else if (valorInicial == 0 || valorMaximo == 0) { // caso não seja 0 colocado na função
-        status == false
+        return status == false
     } else {
 
         for (let contador = 0; contador < valorMaximo; contador++) { // vai fazer um loop até o número que o usuário deseja

@@ -5,58 +5,14 @@
  ***************************************/
 let status = true
 
-function dadosPessoais(aluno, curso, professor, generoAluno, generoProfessor, disciplina) {
-
-    var alunoDados = aluno
-    var cursoDados = curso
-    var professorDados = professor
-    var generoDadosAluno = generoAluno
-    var generoDadosProfessor = generoProfessor
-
-    var disciplinaDados = disciplina
-
-    var feminino = "feminino"
-    var masculino = "masculino"
-
-
-
-    if (!String(alunoDados) || !String(cursoDados) || !String(professorDados) || !String(generoDadosAluno) || !String(feminino) || !String(masculino) || !String(disciplinaDados) || !String(generoDadosProfessor)) {
-
-
-        console.log('Você está digitando caracteres errado')
-
-         status = false
-    } else if (alunoDados == '' || cursoDados == '' || professorDados == '' || generoDadosAluno == '' || feminino == '' || masculino == '' || disciplinaDados == '' || generoDadosProfessor == '') {
-
-
-        console.log('Você está digitando caracteres errado')
-         status = false
-
-    }else if(generoDadosAluno == feminino ||  generoDadosProfessor == feminino)  {
-        generoAluno == "Aluna"
-        generoDadosProfessor == "Aluna"
-    }
-    else{
-       console.log("O aluno " + alunoDados + " foi " + mediaEscolar() + "na disciplina " +  disciplinaDados)
-       
-       
-    }
-    }
 
 
 
 
-function exameEscolar(notaDoExame) {
-
-    let resultadoDoExame = notaDoExame
-
-    return resultadoDoExame
 
 
+function mediaEscolar(nota1, nota2, nota3, nota4) {
 
-}
-
-function mediaEscolar(nota1, nota2, nota3, nota4, notadoExame) {
     let resultado
     let resultadoSomadoComExame
     let nota1DadosDoAluno = Number(nota1)
@@ -70,34 +26,41 @@ function mediaEscolar(nota1, nota2, nota3, nota4, notadoExame) {
 
     if (isNaN(nota1DadosDoAluno) || isNaN(nota2DadosDoAluno) || isNaN(nota3DadosDoAluno) || isNaN(nota4DadosDoAluno || isNaN(notaDoExameDados))) {
         console.log('Erro: insiriu número')
-        status = false
+       return status = false
     } else if (nota1DadosDoAluno === '' || nota2DadosDoAluno === '' || nota3DadosDoAluno === '' || nota4DadosDoAluno === '' || notaDoExameDados === '') {
-        console.log('Erro: insiriu vazio')
-        status = false
+        console.log('Erro: insiriu vázio')
+        return status = false
     } else if (nota1DadosDoAluno < 0 || nota1DadosDoAluno > 100 || nota2DadosDoAluno < 0 || nota2DadosDoAluno > 100 || nota3DadosDoAluno < 0 || nota3DadosDoAluno > 100 || nota4DadosDoAluno < 0 || nota4DadosDoAluno > 100 || notaDoExameDados < 0 || notaDoExameDados > 100) {
-        console.log('Erro: nota maior ou menor')
-        status = false
+        console.log('Erro: nota maior ou menor do que o permitido')
+        return status = false
     } else {
         resultado = (nota1DadosDoAluno + nota2DadosDoAluno + nota3DadosDoAluno + nota4DadosDoAluno) / 4
-
-
+        resultadoSomadoComExame = (resultado + exameEscolar(notaDoExameDados)) / 5
+        console.log(resultado)
+        console.log(resultadoSomadoComExame)
 
         if (resultado >= 70 && resultado <= 100) {
 
-            console.log('Aprovado')
-            return resultado
+            return 'Aprovado'
+            
         } else if (resultado >= 50 && resultado <= 69) {
-            console.log("você vai ter que fazer o exame")
-            resultadoSomadoComExame = (resultado + exameEscolar(notaDoExameDados)) / 4
+          
+            
             if (resultadoSomadoComExame < 0 || resultadoSomadoComExame > 100) {
-                status = false
-            } else {
-                return resultadoSomadoComExame
+                return "Você digitou um número maior ou menor que o desejavel"
+            }
+             else if( resultadoSomadoComExame >= 70 && resultadoSomadoComExame <= 100) {
+          
+                return "Aprovado"
+                
+            }else if(resultadoSomadoComExame >= 50 && resultadoSomadoComExame <= 69){
+                return "reprovado"
+                
             }
 
         } else {
-            console.log("Reprovado")
-            return status
+            return "Erro"
+          
         }
 
 
@@ -105,6 +68,127 @@ function mediaEscolar(nota1, nota2, nota3, nota4, notadoExame) {
 
 }
 
-console.log(dadosPessoais('aluno', 'curso', 'professor', 'feminino', 'masculino', 'sdfsdf'))
-console.log(mediaEscolar(100, 90, 80, 19, 20))
+
+
+
+
+
+
+
+
+
+
+function exameEscolar(notaDoExame) {
+
+    let resultadoDoExame = notaDoExame
+
+
+
+    if (resultadoDoExame < 0 || resultadoDoExame > 100) {
+        return "ERRO: Você digitou um número maior ou menor que o desejavel"
+    }
+    else{
+        return resultadoDoExame
+    }
+
+
+    
+       
+        }
+   
+
+
+
+
+
+function escolherGeneroAluno(generoAluno){
+    let strAluno 
+    let generoDadosAluno = generoAluno
+    
+    
+    if (  generoDadosAluno == "feminino") {
+        strAluno = "A Aluna "
+        return strAluno
+        
+    }  else if (generoDadosAluno == "masculino") {
+         strAluno = "O Aluno "
+         return strAluno
+    }  else {
+        console.log("Erro: de genero")
+    }
+
+}
+
+
+
+function escolherGeneroProfessor(generoProfessor){
+    let strProfessor 
+    let generoDadosProfessor = generoProfessor
+    
+    if(!String(generoDadosProfessor) ){
+    
+        console.log("false")
+    }
+    else if (""){
+    }
+    else if (  generoDadosProfessor == "feminino") {
+        strProfessor = "A Professora "
+        return strProfessor
+        
+    }  else if (generoDadosProfessor == "masculino") {
+        strProfessor = "O Professor "
+        return strProfessor
+
+    }  else {
+      return   strProfessor
+    }
+
+}
+
+
+
+
+function dadosPessoais(nomeAluno, curso, nomeProfessor, generoAluno, generoProfessor, disciplina) {
+
+    let nomeAlunoDados = nomeAluno
+    let cursoDados = curso
+    let nomeProfessorDados = nomeProfessor
+    let generoDadosAluno = generoAluno
+    let generoDadosProfessor = generoProfessor
+    let disciplinaDados = disciplina
+   
+
+
+    if (!String(nomeAlunoDados) || !String(cursoDados) || !String(nomeAlunoDados) || !String(generoDadosAluno)   || !String(disciplinaDados) || !String(generoDadosProfessor)) {
+
+
+        console.log('Você está digitando caracteres errado')
+
+        status = false
+    } else if (nomeAlunoDados == '' || cursoDados == '' || nomeProfessorDados == '' || generoDadosAluno == ''  || disciplinaDados == '' || generoDadosProfessor == '') {
+
+
+        console.log('Você está digitando caracteres errado')
+        status = false
+
+    } else {
+        console.log(escolherGeneroAluno(generoDadosAluno) + " " + nomeAlunoDados + " teve o resultado: " + mediaEscolar(80,80,80,60,30) + " na disciplina " + disciplinaDados)
+       
+
+
+    }
+
+}
+
+module.exports = { // deixando a função pública
+    dadosPessoais,
+    escolherGeneroAluno,
+    escolherGeneroProfessor,
+    mediaEscolar,
+    exameEscolar
+    
+}
+
+
+
 
