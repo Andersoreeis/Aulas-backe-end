@@ -5,6 +5,45 @@
  ***************************************/
 let status = true
 
+function dadosPessoais(aluno, curso, professor, generoAluno, generoProfessor, disciplina) {
+
+    var alunoDados = aluno
+    var cursoDados = curso
+    var professorDados = professor
+    var generoDadosAluno = generoAluno
+    var generoDadosProfessor = generoProfessor
+
+    var disciplinaDados = disciplina
+
+    var feminino = "feminino"
+    var masculino = "masculino"
+
+
+
+    if (!String(alunoDados) || !String(cursoDados) || !String(professorDados) || !String(generoDadosAluno) || !String(feminino) || !String(masculino) || !String(disciplinaDados) || !String(generoDadosProfessor)) {
+
+
+        console.log('Você está digitando caracteres errado')
+
+         status = false
+    } else if (alunoDados == '' || cursoDados == '' || professorDados == '' || generoDadosAluno == '' || feminino == '' || masculino == '' || disciplinaDados == '' || generoDadosProfessor == '') {
+
+
+        console.log('Você está digitando caracteres errado')
+         status = false
+
+    }else if(generoDadosAluno == feminino ||  generoDadosProfessor == feminino)  {
+        generoAluno == "Aluna"
+        generoDadosProfessor == "Aluna"
+    }
+    else{
+       console.log("O aluno " + alunoDados + " foi " + mediaEscolar() + "na disciplina " +  disciplinaDados)
+       
+       
+    }
+    }
+
+
 
 
 function exameEscolar(notaDoExame) {
@@ -64,70 +103,8 @@ function mediaEscolar(nota1, nota2, nota3, nota4, notadoExame) {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    function dadosPessoais(aluno, curso, professor, generoAluno, generoProfessor, disciplina) {
-
-        var alunoDados = aluno
-        var cursoDados = curso
-        var professorDados = professor
-        var generoDadosAluno = generoAluno
-        var generoDadosProfessor = generoProfessor
-
-        var disciplinaDados = disciplina
-
-        var feminino = "feminino"
-        var masculino = "masculino"
-
-
-
-        if (!String(alunoDados) || !String(cursoDados) || !String(professorDados) || !String(generoDadosAluno) || !String(feminino) || !String(masculino) || !String(disciplinaDados) || !String(generoDadosProfessor)) {
-
-
-            console.log('Você está digitando caracteres errado')
-
-             status = false
-        } else if (alunoDados == '' || cursoDados == '' || professorDados == '' || generoDadosAluno == '' || feminino == '' || masculino == '' || disciplinaDados == '' || generoDadosProfessor == '') {
-
-
-            console.log('Você está digitando caracteres errado')
-             status = false
-
-        }else if(generoDadosAluno == feminino ||  generoDadosProfessor == feminino)  {
-            alunoDados == "Aluna"
-            professorDados == "Aluna"
-        }
-        else{
-           console.log("O aluno " +"["+ alunoDados +"]"+ " foi" +  "["+ mediaEscolar() "+]" na disciplina [ xxxxxxxx )
-        }
-        }
-
-            
-
-
-
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
 }
 
-console.log(dadosPessoais('Aluno', 'Curso', 'Professor', 'masculino', 'feminino', 'Disciplina'))
+console.log(dadosPessoais('aluno', 'curso', 'professor', 'feminino', 'masculino', 'sdfsdf'))
+console.log(mediaEscolar(100, 90, 80, 19, 20))
+
