@@ -1,3 +1,8 @@
+/**********************************************
+ * Autor: Anderosn Reis
+ * Objetivo fazer duas tabuadas 
+ * version 1.0
+ */
 var tabuada = require('./modelo/tabuada.js')
 var readline = require('readline'); // importação
 var entradaDados = readline.createInterface({ // entrada de dados
