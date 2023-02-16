@@ -1,3 +1,12 @@
+
+/*******************************
+ * Autor: Anderson Reis
+ * Objetivo: ver se os números são impares ou pares
+ * versão: 1.0
+ *******************************8/
+
+
+
 var calculo = require('./modelo/imparOuPar.js')
 var readline = require('readline')
 var entradaDados = readline.createInterface({
