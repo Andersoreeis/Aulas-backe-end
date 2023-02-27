@@ -20,8 +20,12 @@ const removerProduto = function (lista, produto) {
         status = false
     }
     // saídas
-    return status
+    if(status){ // para verificar se é verdadeiro não precisa colocar status == true
+        return copiaProdutos
+    }else{
+        return false
+    }
 
 }
 
-removerProduto(listaProdutos, 'Monitor');
+removerProduto(listaProdutos, 'Monitor') ; 
