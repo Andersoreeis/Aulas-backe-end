@@ -193,30 +193,32 @@ listProdutosJSON.produtos[3].modelo = listModeloTeclado // teclado
 listProdutosJSON.produtos[4].modelo = listModeloTeclado // teclado
 listProdutosJSON.produtos[5].modelo = listModeloTeclado // teclado
 
-for (let contador = 0; contador < listProdutosJSON.produtos.length; contador++) {
 
 
-    for (let i = 0; i < listProdutosArray[contador].cores.length; i++) {
+listProdutosJSON.produtos.forEach(function (itemProduto) {
+    console.log(`Nome: ${ itemProduto.nome }`);
+    console.log(`Marca: ${ itemProduto.marca }`);
+    console.log(`Valor: ${ itemProduto.valor }`);
 
-        for (let contadorModelo = 0; contadorModelo < listProdutosArray[contador].modelo.length; contadorModelo++) {
-            if (listProdutosArray[contador].modelo.indexOf(listProdutosArray[contador].modelo[i]) >= 0) {
-                console.log(`Nome: ${listProdutosJSON.produtos[contador].nome}`)
-                console.log(`Marca: ${listProdutosJSON.produtos[contador].marca}`)
-                console.log(`Valor: ${listProdutosJSON.produtos[contador].valor}`)
-                console.log(`Cores: ${ listProdutosArray[contador].cores[i]}`);
-                console.log(`Modelo: ${ listProdutosArray[contador].modelo[contadorModelo]}`);
-                console.log('-----------------------------------------');
-                
-            } else {
-                return false
-            }
+    if(itemProduto.cores != undefined){
+        itemProduto.cores.forEach(function (itemCores) {
+            console.log(`***Cores: ${ itemCores }`);
+        })
+    }
+ 
 
-        }
-
+    if (itemProduto.modelo != undefined) {
+        itemProduto.modelo.forEach(function (itemModelo) {
+            console.log(`***Modelo: ${ itemModelo }`);
+        })
 
     }
 
 
+console.log('--------------------------');
 
 
-}
+
+
+
+})
