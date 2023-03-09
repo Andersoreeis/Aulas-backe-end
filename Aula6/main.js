@@ -115,18 +115,51 @@ const getEstadosRegiao = (regiao) => {
   
 
 }
-const getCapitalPais(){
+const getCapitalPais = () =>{
 
     const listaEstadosJSON = {}
     const listaEstadosArray = []
-    
+  
+  
     estadosBrasilJSON.estados.forEach(function (estado) {
-        listaEstadosJSON.capitais = listaEstadosArray
-        
-        listaEstadosArray.push(`capital atual  ${estado.capital_pais.capital}`, `uf: ${estado.sigla}`, `descricao: ${estado.nome}`, `capital: ${estado.capital}`)
+       
         
 
+        if(estado.capital_pais != undefined ){
+           
+            const listaNova = {capital_atual: estado.capital_pais.capital, uf: estado.sigla, descricao:estado.sigla,capital:estado.capital, capital_pais_ano_inicio:estado.capital_pais.ano_inicio, capital_pais_ano_fim:estado.capital_pais.ano_fim}
+            listaEstadosArray.push(listaNova)
+
+            listaEstadosJSON.capitais = listaEstadosArray
+        }
+         
+      
 
     })
+    return listaEstadosJSON
+    
 }
 
+const getCidades = (siglaEstado)=>{
+const listaEstadosJSON = {}
+const listaEstadosArray = []
+
+    estadosBrasilJSON.estados.forEach(function(estado){
+        if(estado.sigla == siglaEstado){
+        listaEstadosJSON.uf = estado.sigla
+        listaEstadosJSON.descricao = estado.nome
+        listaEstadosJSON.quantidade_cidades = estado.cidades.length
+        estado.cidades.forEach(function(pegarCidade){
+            listaEstadosArray.push(pegarCidade.nome)
+        })
+       
+        listaEstadosJSON.cidade = listaEstadosArray
+    }
+})
+return listaEstadosJSON
+}
+
+    
+
+
+console.log(getCidades('AC'));
