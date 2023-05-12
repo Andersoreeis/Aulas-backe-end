@@ -40,7 +40,7 @@ app.use((request, response, next) => {
 
 
 // EndPoint para primeira função getListaDeEstados
-app.get('/estados', cors(), async function (request, response, next) {
+app.get('/v1/senai/estados', cors(), async function (request, response, next) {
     let estados = estadosCidades.getListaDeEstados()
     if (estados) // tratamento para validar o sucesso da requisição
     {
@@ -54,7 +54,7 @@ app.get('/estados', cors(), async function (request, response, next) {
 })
 
 // EndPoint para segunda função getDadosEstado, lista os dados do estado fiiltrando pela sigla
-app.get('/estado/:uf', cors(), async function (request, response, next) {
+app.get('/v2/senai/estado/sigla/:uf', cors(), async function (request, response, next) {
 
     let statusCode
     let dadosEstados = {}
@@ -77,7 +77,7 @@ app.get('/estado/:uf', cors(), async function (request, response, next) {
     response.json(dadosEstados)
 })
 
-app.get('/capital-estado/:uf', cors(), async function (request, response, next) {
+app.get('/senai/capital/estado/sigla/:uf', cors(), async function (request, response, next) {
 
     let statusCode
     let dadosEstados = {}
@@ -101,7 +101,7 @@ app.get('/capital-estado/:uf', cors(), async function (request, response, next) 
     response.json(dadosEstados)
 })
 
-app.get('/estado-regiao/:regiao', cors(), async function (request, response, next) {
+app.get('/senai/regiao/sigla/:regiao', cors(), async function (request, response, next) {
 
     let statusCode
     let dadosEstados = {}
@@ -125,7 +125,7 @@ app.get('/estado-regiao/:regiao', cors(), async function (request, response, nex
     response.json(dadosEstados)
 })
 
-app.get('/capital-pais', cors(), async function (request, response, next) {
+app.get('/senai/pais/capital', cors(), async function (request, response, next) {
     let capital = estadosCidades.getCapitalPais()
     if (capital) // tratamento para validar o sucesso da requisição
     {
@@ -138,7 +138,7 @@ app.get('/capital-pais', cors(), async function (request, response, next) {
 
 })
 
-app.get('/estado-cidades/:cidade', cors(), async function (request, response, next) {
+app.get('/senai/estado/cidades/sigla/:cidade', cors(), async function (request, response, next) {
 
     let statusCode
     let dadosEstados = {}
@@ -160,6 +160,13 @@ app.get('/estado-cidades/:cidade', cors(), async function (request, response, ne
     }
     response.status(statusCode)
     response.json(dadosEstados)
+})
+app.get('/senai/cidades', cors(), async function (request, response, next) {
+    let siglaEstado = request.query.uf // Recebe a sigla do estado que será enviada
+    let siglaQuantidade = request.query.quantidade // Recebe a quantidade de cidades que será enviada
+    console.log(siglaEstado);
+    console.log(siglaEstado);
+    
 })
 
 app.listen(8080, function () {

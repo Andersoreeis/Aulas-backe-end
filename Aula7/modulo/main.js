@@ -155,7 +155,7 @@ const getCapitalPais = () => {
     }
 
 }
-console.log(getCapitalPais());
+
 
 
 const getCidades = (siglaEstado) => {
@@ -184,6 +184,9 @@ const getCidades = (siglaEstado) => {
 
 }
 
+
+
+console.log(getCidades('AC'));
 
 
 
